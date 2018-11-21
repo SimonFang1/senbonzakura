@@ -19,6 +19,11 @@ music = \new GrandStaff <<
     \clef treble
     \accordion_r
   }
+  \new Staff {
+    \set Staff.midiInstrument = # "accordion"
+    \clef bass
+    \accordion_l
+  }
 >>
 
 \score {
@@ -31,6 +36,6 @@ music = \new GrandStaff <<
   \unfoldRepeats
   \music
   \midi{
-    % \tempo 4=72
+    \tempo 4=72
   }
 }

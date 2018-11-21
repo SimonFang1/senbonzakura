@@ -3,7 +3,7 @@ ddc = \relative c' {
   <d a>16.[ q <c g>16]
 }
 i_r = \relative c' {
-  \grace {d16 c} 
+  % \grace {d16 c}
   \repeat unfold 3 {\ddc}
   <d a>8 <f c>
   \repeat unfold 2 {\ddc}
@@ -24,8 +24,12 @@ ii_r = \relative c'' {
     f16 \tuplet 3/2 {e32 f e} d16 c \noBreak
   }
   \alternative {
-    {d16 c32 d f16 d32 f g16 f32 g a c g a f'16 \tuplet 3/2 {e32 f e} d16 c d8 d,16 f}
-    {g16 a32 c d c a g d16 f g a \transpose d d' {\ddc} <d, a>4}
+    {
+      d16 c32 d f16 d32 f g16 f32 g a c g a f'16 \tuplet 3/2 {e32 f e} d16 c d8 d,16 f
+    }
+    {
+      g16 a32 c d c a g d16 f g a \transpose d d' {\ddc} <d, a>4
+    }
   }
 }
 
@@ -126,7 +130,7 @@ vii_r = {
   \afdaafd \afdaafd
   \bgebbge \bgebbge
   \bfdbbfd \bfdbbfd
-  \gecggec \aecaaec
+  \gecggec \aecaaec \noBreak
 }
 
 % #8
@@ -165,11 +169,11 @@ viii_r = {
   \bfdbfdaf \bfdbfedb
   \dbfbfbdf \bfdbbfdb
   \ccegc \transpose c des {\ccegc}
-  \gafagfed \edcddcag \agfagfefd
 }
 
 % #9
 ix_r = \relative c' {
+  \gafagfed \edcddcag \agfagfefd
   d16 e f a g32 a d e f e d f
   <a c,>8 <c c,>16 <a c,>  <a d,>4
 }
@@ -196,7 +200,6 @@ xii_r = \relative c''' {
   \ggaa \bagff
   \ggaa \cdgfa
   \bagf g16 a g a a8 e16 g
-
 }
 
 
@@ -237,4 +240,221 @@ accordion_r = {
   }
   r2
   \bar "|."
+}
+
+
+bassC = c
+bassD = d
+bassE = e,
+bassF = f,
+bassG = g,
+bassA = a,
+bassB = b,
+
+CM = <e g c'>16
+DM = <fis a d'>
+Dm = <f a d'>16
+EM = <e gis b>
+Ev = <g des >
+Ev = <e gis d'>
+FM = <f a c'>
+Fv = <a e' f'>
+Gm = <g bes d'>
+Am = <e a c'>
+BM = <dis f b>16
+BesM = <d f bes>16
+
+Dd = <d f a d'>8
+BesB = <bes, d f bes>8
+CC = <c e g c'>8
+
+% #1
+ddc_bs = {
+  d16 d8 c16
+}
+i_l = {
+  % \grace {s8}
+  \repeat unfold 3 {\ddc_bs} d8 f
+  \repeat unfold 2 {\ddc_bs} d8 f g a
+}
+
+% #2
+BBFBCCGC = {
+  bes,16 \BesM f, \BesM c \CM g, \CM
+}
+DDAD = {
+  d \Dm a, \Dm
+}
+ii_l = {
+  \repeat volta 2 {
+    \repeat unfold 3 {
+      \BBFBCCGC \DDAD \DDAD
+    }
+  }
+  \alternative {
+    {\BBFBCCGC \DDAD \DDAD}
+    {\BBFBCCGC \ddc_bs d4}
+  }
+}
+
+% #3
+iii_l = {
+  \repeat unfold 4 {
+    \DDAD \DDAD \BBFBCCGC
+  }
+}
+
+% #4
+BBBB = {
+  bes,16 \BesM \BesM \BesM
+}
+FFFF = {
+  f,16 \FM \FM \FM
+}
+CCCC = {
+  c16 \CM \CM \CM
+}
+DDDD = {
+  d16 \Dm \Dm \Dm
+}
+iv_l = {
+  \BBBB \BBBB \FFFF \FFFF
+  \BBBB \CCCC \DDDD \DDDD
+  \BBBB \BBBB \FFFF \FFFF
+  <bes, d f bes>8. q16
+  <c e g c'>8 q
+  <a, e a c'>4
+  <a, e a cis'>8 r
+}
+
+% #5
+FFCF = {
+  f,16 \FM c \FM
+}
+BBCC = {
+  bes,16 \BesM c \CM
+}
+v_l = {
+  \repeat unfold 3 {
+    \DDAD \BBFBCCGC \FFCF
+  }
+  \BBFBCCGC \BBCC
+  <d f a d'>8 r
+  \repeat unfold 3 {
+    \DDAD \BBFBCCGC \FFCF
+  }
+  \BBFBCCGC \BBCC
+  <d f a d'>4
+}
+
+% #6
+vi_l = {
+  % \Dd[ r8 \BesB] r
+  % \CC[ r \Dd] r
+  <d f a d'>8 [r <bes, d f bes>] r
+  <c e g c'> [r <d f a d'>] r
+  <d f a d'> [r <bes, d f bes>] r
+  <c e g c'> [r <a, c e a>] r
+
+}
+
+% #7
+vii_l = {
+  <d f a d'> q q q
+  <f, g bes d'> q q q
+  <bes, d f bes> q q q
+  <c e g c'> q <a, c e a> q
+}
+
+% #8
+
+viii_l = {
+  d8 <f a d'> g, <g bes d'>
+  bes, <d g bes> g, <g bes d'>
+  g, <g bes d'> bes, <d g bes>
+  c <e g c'> a, <cis e a>
+
+}
+
+% #9
+ix_l = {
+  \BBBB \CCCC \DDDD \DDDD
+  \BBBB \CCCC \DDDD \DDDD
+}
+
+% #10
+x_l = {
+  <bes, d f bes>4
+  <c e g c'>
+  <d f a d'>2
+}
+
+% #11
+xi_l = {
+  \BBFBCCGC
+  a,16. <c e a> q16 <a, c e a>4
+}
+
+% #12
+xii_l = {
+  \repeat unfold 3 {
+    <d f a d'>8. q16
+    <bes, d f bes>8. q16
+    <c e g c'>8 q
+    <f, a c f> r
+  }
+  <bes, d f bes>8 q
+  <c e g c'> q
+  <bes, d f bes> <c e g c'>
+  <a, c e a> r
+}
+
+% #13
+xiii_l = {
+  % modify ii2
+  \transpose d e {
+    \repeat volta 2 {
+      \repeat unfold 3 {
+        \BBFBCCGC \DDAD \DDAD
+      }
+    }
+    \alternative {
+      {\BBFBCCGC \DDAD \DDAD}
+      {\BBFBCCGC \ddc_bs d8 c16 des}
+    }
+  }
+  \transpose d e {\ddc_bs}
+  <e b,>4 r2
+}
+
+accordion_l = {
+  \key d \minor
+  \time 4/4
+
+  % preclude
+  \i_l
+
+  % parahgraph 1
+  \ii_l
+  \iii_l
+  \iv_l
+  \v_l
+
+  % paragraph 2
+  \vi_l
+  \vii_l
+  \viii_l
+  \ix_l
+  \x_l
+  \xi_l
+
+  % paragraph 3
+  \iv_l
+  \xii_l
+  \key e \minor
+  \transpose d e {\v_l}
+
+  % paragraph 4
+  \xiii_l
+
 }
